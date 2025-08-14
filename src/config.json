@@ -1,0 +1,85 @@
+{
+  "thresholds": {
+    "lowIncome": { "monthlyIncome": 1250, "assets": 2000 },
+    "gapIncome": { "monthlyIncome": 2900, "assets": 2000 }
+  },
+  "contacts": {
+    "map": "1-844-MAP-LINK (1-844-627-5465)",
+    "ssa": "1-800-772-1213",
+    "va": "1-800-949-1003"
+  },
+  "disclaimer": "This is a screening tool, not an application or a guarantee of eligibility. The purpose is to help you identify programs you may be eligible for based on your answers. Financial figures are estimates for a single individual as of August 2025 and are subject to change. Your next step should always be to contact the Maryland Access Point (MAP) for official advice.",
+  "logicPaths": {
+    "ltci": {
+      "title": "Your Long-Term Care Insurance policy is your first line of support.",
+      "summary": [
+        "Contact your insurance provider immediately to understand your policy's benefits, daily limits, and how to file a claim."
+      ],
+      "showMedicareNote": false
+    },
+    "va": {
+      "title": "Your primary path for LTSS coverage is the U.S. Department of Veterans Affairs (VA).",
+      "summary": [
+        "The VA operates its own comprehensive long-term care programs separate from Medicare and Medicaid.",
+        "They may provide in-home care, adult day health care, and care in VA-run nursing homes (Community Living Centers).",
+        "Next step: Call VA Maryland Health Care System at 1-800-949-1003 and ask for Geriatrics and Extended Care (GEC) or a VA Social Worker.",
+        "Veterans Service Organizations (VSOs) like DAV, The American Legion, and VFW can help you apply for benefits at no cost.",
+        "Note: You can also explore the Medicaid options in this tool; some veterans combine benefits."
+      ],
+      "showMedicareNote": false
+    },
+    "low-income": {
+      "title": "You are a strong candidate for several programs to help you live at home.",
+      "summary": [
+        "You likely qualify for full Medicaid coverage (Medical Assistance) managed by a HealthChoice plan.",
+        "As a Medicaid recipient, request an assessment for Community First Choice (CFC) or Community Personal Assistance Services (CPAS).",
+        "For enhanced services like adult day care or assisted living, apply for a Home and Community Based Services (HCBS) Waiver. Waiver programs may have a waitlist, but you receive Medical Assistance even while waiting.",
+        "Next step: Contact the Maryland Access Point (MAP) and ask to apply for Medical Assistance and the Medicare Savings Program."
+      ],
+      "showMedicareNote": true
+    },
+    "gap": {
+      "title": "Your situation fits a specific pathway for significant long-term care support.",
+      "summary": [
+        "Your income may be too high for basic Medicaid but within limits for long-term care programs.",
+        "The Home and Community Based Services (HCBS) Waiver is your main path to getting Medicaid to pay for services at home or in assisted living.",
+        "Qualifying for the waiver also grants full Medical Assistance coverage through a HealthChoice plan.",
+        "If there's a waitlist, you may not receive full coverage until enrolled; apply separately for the Medicare Savings Program (MSP) and Extra Help (LIS) to reduce Medicare costs sooner.",
+        "The Maryland Senior Care Program may help while you wait.",
+        "Next step: Contact the Maryland Access Point (MAP) and ask to apply for Long-Term Services and Supports, specifically an HCBS Waiver."
+      ],
+      "showMedicareNote": true
+    },
+    "nursing-home": {
+      "title": "You may be eligible for help paying for your nursing home care.",
+      "summary": [
+        "Nursing Home Medicaid can cover the majority of your costs; most of your monthly income will go toward your care.",
+        "If you wish to move back to the community, ask about the Money Follows the Person (MFP) program.",
+        "Next step: Speak with the nursing facility social worker to apply for Nursing Home Medicaid."
+      ],
+      "showMedicareNote": false
+    },
+    "higher-income": {
+      "title": "Your primary options will likely involve using your own resources or Medicare's short-term benefits.",
+      "summary": [
+        "Medicare covers short-term skilled care at home or in a facility after a hospital stay. It does not cover ongoing custodial care like bathing or cooking.",
+        "Private pay: Use your income/assets to pay directly for services.",
+        "If expenses are high, you may qualify for Medicaid through the Medically Needy 'Spend-Down' Pathway — works like a monthly deductible.",
+        "Next step: Contact the Maryland Access Point (MAP) for options counseling."
+      ],
+      "showMedicareNote": false
+    },
+    "general": {
+      "title": "Let’s talk through your options.",
+      "summary": [
+        "Contact the Maryland Access Point (MAP): 1-844-627-5465 for options counseling."
+      ],
+      "showMedicareNote": false
+    }
+  },
+  "medicareNote": [
+    "Maryland law requires you to apply for and enroll in Medicare if you are eligible as a condition of receiving Medicaid.",
+    "Once your Medicaid is approved, a related program will pay your Medicare Part B premium.",
+    "Next step: Contact the Social Security Administration at 1-800-772-1213 to begin your Medicare application."
+  ]
+}

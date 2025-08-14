@@ -2,7 +2,12 @@
 
 import React from "react";
 import { useLocation, Link } from "react-router-dom";
-import { computeResult, buildCTAs, medicareNoteNeeded } from "../utils/logic.js";
+import {
+  computeResult,
+  buildCTAs,
+  medicareNoteNeeded,
+  getDisclaimer
+} from "../utils/logic.js";
 
 function useAnswersFromURL() {
   const { search } = useLocation();
@@ -74,7 +79,9 @@ export default function Results() {
               ...result.summary.map(s => `• ${s}`),
               ...(medicareNote ? ['\nMedicare note:', ...medicareNote.map(s => `• ${s}`)] : []),
               '\nContacts:',
-              ...ctas.map(c => `• ${c.label}: ${c.value}`)
+              ...ctas.map(c => `• ${c.label}: ${c.value}`),
+              '\nDisclaimer:',
+              getDisclaimer()
             ].join('\n');
             navigator.clipboard.writeText(text);
             alert('Summary copied to clipboard.');
@@ -84,6 +91,10 @@ export default function Results() {
         </button>
         <Link className="usa-button usa-button--unstyled margin-left-2" to="/">Start over</Link>
       </div>
+
+      <section className="margin-top-4">
+        <p className="font-sans-2xs">{getDisclaimer()}</p>
+      </section>
     </div>
   );
 }
