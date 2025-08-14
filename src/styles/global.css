@@ -1,0 +1,66 @@
+/* Global app styles — MD Digital Service + USWDS friendly */
+
+:root {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: "Source Sans Pro", "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color: #1b1b1b; /* USWDS base ink */
+  background: #ffffff;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.main-container {
+  flex: 1 0 auto;
+}
+
+.mda-container {
+  max-width: 72rem; /* ~1152px */
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+a {
+  text-underline-offset: 0.15em;
+}
+
+/* Buttons: prefer USWDS classes (usa-button), add a minimal fallback */
+.button {
+  display: inline-block;
+  border: 0;
+  padding: .625rem 1rem;
+  border-radius: .25rem;
+  background: #005ea2; /* USWDS primary-700 */
+  color: #fff;
+  cursor: pointer;
+}
+.button:focus {
+  outline: 3px solid #2491ff;
+  outline-offset: 2px;
+}
+
+/* Print-friendly defaults */
+@media print {
+  header, nav, .no-print {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+  }
+  a {
+    color: #000 !important;
+    text-decoration: none !important;
+  }
+}
