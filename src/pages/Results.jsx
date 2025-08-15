@@ -1,5 +1,6 @@
 // Results page that reads URL & renders content
-
+import React from "react";
+import StepIndicator from "../components/StepIndicator.jsx";
 import { useLocation, Link } from "react-router-dom";
 import {
   computeResult,
@@ -29,7 +30,7 @@ export default function Results() {
   return (
     <div className="measure-6">
       <h1 className="margin-top-2">Your results</h1>
-
+      <StepIndicator current={2} />
       {!hasAll && (
         <div className="usa-alert usa-alert--warning margin-bottom-2">
           <div className="usa-alert__body">

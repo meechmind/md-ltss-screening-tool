@@ -73,3 +73,12 @@ a {
   font-size: 0.95em;
   color: #565c65; /* USWDS gray-60-ish */
 }
+
+/* Tighter spacing in the error summary list only */
+.error-list {
+  margin: 0;                 /* reset any default margins */
+  padding-left: 1.25rem;     /* keep bullets aligned with USWDS */
+}
+.error-list li + li {
+  margin-top: 0.25rem !important;  /* ensure it wins over USWDS */
+}
