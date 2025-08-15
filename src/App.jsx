@@ -17,7 +17,7 @@ export default function App() {
   return (
     <div className="app-container">
       <Header />
-      <main id="main" className="main-container">
+      <main id="main" role="main"className="main-container">
         <Container>
           <Routes>
             <Route

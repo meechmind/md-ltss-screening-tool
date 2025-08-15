@@ -9,9 +9,11 @@
     "preview": "vite preview",
     "test": "vitest",
     "test:run": "vitest run",
-    "lint": "eslint . --ext .js,.jsx",
+    "lint": "eslint . --ext .js,.jsx --max-warnings=0",
     "lint:fix": "eslint . --ext .js,.jsx --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "precommit": "lint-staged",
+    "prepush": "vitest run"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint --fix"
@@ -23,6 +25,7 @@
     "react-router-dom": "^7.8.0"
   },
   "devDependencies": {
+    "@axe-core/react": "^4.10.2",
     "@eslint/js": "^9.33.0",
     "@vitejs/plugin-react": "^4.3.1",
     "eslint": "^9.33.0",
