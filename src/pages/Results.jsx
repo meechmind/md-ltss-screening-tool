@@ -1,12 +1,10 @@
 // Results page that reads URL & renders content
 
-import React from "react";
 import { useLocation, Link } from "react-router-dom";
 import {
   computeResult,
   buildCTAs,
-  medicareNoteNeeded,
-  getDisclaimer
+  medicareNoteNeeded
 } from "../utils/logic.js";
 
 function useAnswersFromURL() {
@@ -91,10 +89,6 @@ export default function Results() {
         </button>
         <Link className="usa-button usa-button--unstyled margin-left-2" to="/">Start over</Link>
       </div>
-
-      <section className="margin-top-4">
-        <p className="font-sans-2xs">{getDisclaimer()}</p>
-      </section>
     </div>
   );
 }

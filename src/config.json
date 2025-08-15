@@ -1,4 +1,8 @@
 {
+  "meta": {
+    "appTitle": "Maryland LTSS Options Screening Tool"
+  },
+  
   "thresholds": {
     "lowIncome": { "monthlyIncome": 1250, "assets": 2000 },
     "gapIncome": { "monthlyIncome": 2900, "assets": 2000 }
@@ -81,5 +85,15 @@
     "Maryland law requires you to apply for and enroll in Medicare if you are eligible as a condition of receiving Medicaid.",
     "Once your Medicaid is approved, a related program will pay your Medicare Part B premium.",
     "Next step: Contact the Social Security Administration at 1-800-772-1213 to begin your Medicare application."
+  ],
+  "faq": [
+    {
+      "q": "Does Medicare cover long-term services and supports (LTSS)?",
+      "a": [
+        "Medicare is health insurance designed for medical recovery, not for long-term custodial care.",
+        "Medicare may cover short-term, skilled care to help you rehabilitate after a hospital stay or specific medical event.",
+        "Medicare does not cover ongoing personal support like help with bathing, dressing, or cooking. This is why Medicaid programs (like CFC/CPAS and HCBS waivers) are important."
+      ]
+    }
   ]
 }

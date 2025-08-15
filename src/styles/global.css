@@ -64,3 +64,12 @@ a {
     text-decoration: none !important;
   }
 }
+
+  /* Keep (Required) inline when used inside legends */
+.usa-legend .hint-inline {
+  display: inline;
+  margin-left: 0.25rem;
+  font-weight: normal;
+  font-size: 0.95em;
+  color: #565c65; /* USWDS gray-60-ish */
+}

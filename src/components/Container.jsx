@@ -1,5 +1,4 @@
 // Container component
-import React from "react";
 
 export default function Container({ children, as: Tag = "div", className = "" }) {
   return (

@@ -1,7 +1,6 @@
 // results logic
 import config from "../config.json" assert { type: "json" };
 
-
 /**
  * Determine result key from answers.
  * answers = { a1: 'A'|'B'|'C'|'D', a2: 'A'|'B'|'C', a3: 'A'|'B'|'C', a4: 'A'|'B' }
@@ -49,6 +48,12 @@ export function medicareNoteNeeded(showMedicareNote) {
   return config.medicareNote;
 }
 
+/** Returns FAQ array */
+export function getFAQ() {
+  // Returns an array of { q: string, a: string[] }
+  return config.faq || [];
+}
+
 /** Returns contact CTA array from config */
 export function buildCTAs() {
   return [
@@ -56,6 +61,16 @@ export function buildCTAs() {
     { label: "Social Security Administration", value: config.contacts.ssa },
     { label: "VA Maryland Health Care System", value: config.contacts.va }
   ];
+}
+
+// Returns the contact information
+export function getContacts() {
+  return config.contacts; // { map, ssa, va }
+}
+
+// Returns title
+export function getMeta() {
+  return config.meta || { appTitle: "Maryland LTSS Options Screening Tool" };
 }
 
 /** Returns disclaimer text */
