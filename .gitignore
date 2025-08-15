@@ -33,3 +33,15 @@ coverage/
 # macOS
 .DS_Store
 __MACOSX/
+Thumbs.db
+
+# Env/config you don't want public
+.env
+.env.*
+!.env.example
+
+# Editors/IDEs (optional)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
