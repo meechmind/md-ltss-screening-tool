@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import StepIndicator from "../components/StepIndicator.jsx";
 
@@ -41,6 +41,14 @@ export default function Questions() {
     "aria-describedby": errors[key] ? `${key}-error` : undefined
   });
 
+  // focus a radio button group
+  function focusGroup(e, id) {
+    e.preventDefault();
+    const firstInput = document.querySelector(`#${id} input[type="radio"]`);
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    firstInput?.focus();
+  }
+
   return (
     <form className="measure-6" onSubmit={handleSubmit} noValidate>
       <h1 className="margin-top-2">Find the Right Support for You</h1>
@@ -59,10 +67,10 @@ export default function Questions() {
             <h2 className="usa-alert__heading">Please answer all required questions</h2>
             <div className="usa-alert__text">
               <ul className="usa-list">
-                {errors.q1 && <li><a href="#q1">Question 1: Your current situation</a></li>}
-                {errors.q2 && <li><a href="#q2">Question 2: Insurance or VA benefits</a></li>}
-                {errors.q3 && <li><a href="#q3">Question 3: Financial picture</a></li>}
-                {errors.q4 && <li><a href="#q4">Question 4: Medicare enrollment</a></li>}
+                {errors.q1 && <li><a href="#q1" onClick={(e) => focusGroup(e, 'q1')}>Question 1: Your current situation</a></li>}
+                {errors.q2 && <li><a href="#q2" onClick={(e) => focusGroup(e, 'q2')}>Question 2: Insurance or VA benefits</a></li>}
+                {errors.q3 && <li><a href="#q3" onClick={(e) => focusGroup(e, 'q3')}>Question 3: Financial picture</a></li>}
+                {errors.q4 && <li><a href="#q4" onClick={(e) => focusGroup(e, 'q4')}>Question 4: Medicare enrollment</a></li>}
               </ul>
             </div>
           </div>

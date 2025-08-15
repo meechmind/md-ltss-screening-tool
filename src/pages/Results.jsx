@@ -1,8 +1,8 @@
 // Results page that reads URL & renders content
 
-import React from "react";
+import React, { useRef, useState } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { computeResult, medicareNoteNeeded } from "../utils/logic.js";
+import { computeResult, medicareNoteNeeded, buildCTAs } from "../utils/logic.js";
 import StepIndicator from "../components/StepIndicator.jsx";
 import ResultCard from "../components/ResultCard.jsx";
 import CTAList from "../components/CTAList.jsx";
@@ -22,6 +22,29 @@ export default function Results() {
   const answers = useAnswersFromURL();
   const result = computeResult(answers);
   const medicareNote = medicareNoteNeeded(result.showMedicareNote);
+
+  const [copiedMsg, setCopiedMsg] = useState("");
+  const liveRef = useRef(null);
+
+  function copy(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedMsg("Copied to clipboard.");
+      setTimeout(() => setCopiedMsg(""), 2000);
+    });
+  }
+
+  function makeSummaryText(result, medicareNote, ctas) {
+    const lines = [
+      `Result: ${result.title}`,
+      ...result.summary.map((s) => `• ${s}`),
+    ];
+    if (medicareNote) {
+      lines.push("", "Medicare note:", ...medicareNote.map((s) => `• ${s}`));
+    }
+    lines.push("", "Contacts:");
+    ctas.forEach((c) => lines.push(`• ${c.label}: ${c.value}`));
+    return lines.join("\n");
+  }
 
   const hasAll = answers.a1 && answers.a2 && answers.a3 && answers.a4;
 
@@ -69,29 +92,39 @@ export default function Results() {
         <button className="usa-button" onClick={() => window.print()}>
           Print results
         </button>
+
         <button
           className="usa-button usa-button--outline margin-left-1"
           onClick={() => {
-            const lines = [
-              `Result: ${result.title}`,
-              ...result.summary.map((s) => `• ${s}`),
-              ...(medicareNote ? ["", "Medicare note:", ...medicareNote.map((s) => `• ${s}`)] : []),
-              "",
-              "Contacts:",
-              // simple text version of CTA list (same as on page)
-              "• Call Maryland Access Point (MAP): 1-844-MAP-LINK (1-844-627-5465)",
-              "• Social Security Administration: 1-800-772-1213",
-              "• VA Maryland Health Care System: 1-800-949-1003",
-            ];
-            navigator.clipboard.writeText(lines.join("\n"));
-            alert("Summary copied to clipboard.");
+            const ctas = buildCTAs();
+            const text = makeSummaryText(result, medicareNote, ctas);
+            copy(text);
           }}
         >
           Copy summary
         </button>
+
+        <button
+          className="usa-button usa-button--outline margin-left-1"
+          onClick={() => copy(window.location.href)}
+        >
+          Copy link
+        </button>
+
         <Link className="usa-button usa-button--unstyled margin-left-2" to="/">
           Start over
         </Link>
+
+        {/* polite screen-reader announcement */}
+        <div
+          className="usa-sr-only"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+          ref={liveRef}
+        >
+          {copiedMsg}
+        </div>
       </div>
     </div>
   );

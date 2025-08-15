@@ -82,3 +82,9 @@ a {
   .usa-card__header { border-bottom: 1px solid #eee; }
   a[href^="http"]:after { content: " (" attr(href) ")"; font-size: 0.9em; }
 }
+
+/* Fallback focus ring for interactive controls (USWDS already handles most) */
+:where(a, button, input, select, textarea, [role="button"]):focus-visible {
+  outline: 3px solid #2491ff;
+  outline-offset: 2px;
+}

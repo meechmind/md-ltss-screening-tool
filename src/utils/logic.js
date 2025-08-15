@@ -1,5 +1,5 @@
 // results logic
-import config from "../config.json" assert { type: "json" };
+import config from "../config.json"
 
 /**
  * Determine result key from answers.
