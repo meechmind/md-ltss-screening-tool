@@ -1,5 +1,4 @@
 // results logic
-import "../config.validate.js";
 import config from "../config.json";
 
 /**

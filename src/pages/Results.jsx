@@ -6,6 +6,7 @@ import { computeResult, medicareNoteNeeded, buildCTAs } from "../utils/logic.js"
 import StepIndicator from "../components/StepIndicator.jsx";
 import ResultCard from "../components/ResultCard.jsx";
 import CTAList from "../components/CTAList.jsx";
+import config from "../config.json";
 
 // Custom hook to read answers from the URL
 function useAnswersFromURL() {
@@ -24,6 +25,7 @@ export default function Results() {
   const answers = useAnswersFromURL();
   const result = computeResult(answers);
   const medicareNote = medicareNoteNeeded(result.showMedicareNote);
+  const { questions } = config;
 
   const [copiedMsg, setCopiedMsg] = useState("");
   const liveRef = useRef(null);
@@ -45,10 +47,10 @@ export default function Results() {
     lines.push(
       "",
       "Your question responses:",
-      `• Q1: ${answerText.a1[answers.a1] || ""}`,
-      `• Q2: ${answerText.a2[answers.a2] || ""}`,
-      `• Q3: ${answerText.a3[answers.a3] || ""}`,
-      `• Q4: ${answerText.a4[answers.a4] || ""}`
+      `• Q1: ${questions.a1.options[answers.a1] || ""}`,
+      `• Q2: ${questions.a2.options[answers.a2] || ""}`,
+      `• Q3: ${questions.a3.options[answers.a3] || ""}`,
+      `• Q4: ${questions.a4.options[answers.a4] || ""}`
     );
     if (medicareNote) {
       lines.push("", "Medicare note:", ...medicareNote.map((s) => `• ${s}`));
@@ -68,27 +70,6 @@ export default function Results() {
       month: 'long', 
       day: 'numeric' 
     });
-  
-  const answerText = {
-  a1: {
-    A: "I’m living at home/with family; daily tasks are difficult.",
-    B: "In hospital/rehab and planning to return home.",
-    C: "In hospital/rehab and may need a nursing home.",
-    D: "Currently living in a nursing home for long-term care."
-  },
-  a2: {
-    A: "Long-Term Care Insurance",
-    B: "Access to VA (Veterans) benefits",
-    C: "None of the above"
-  },
-  a3: {
-    A: "Monthly income < ~$1,250 AND savings/assets < $2,000",
-    B: "Monthly income ~$1,250–$2,900 AND savings/assets < $2,000",
-    C: "Monthly income > ~$2,900 OR savings/assets > $2,000"
-  },
-  a4: { A: "Yes", B: "No" }
-};
-
   {/* Results Cards */}
   return (
     <div className="measure-6">
@@ -104,10 +85,10 @@ export default function Results() {
       {hasAll && (
         <ResultCard title="Your question responses:" className="only-print">
           <ul className="usa-list">
-            <li>Q1: {answerText.a1[answers.a1]}</li>
-            <li>Q2: {answerText.a2[answers.a2]}</li>
-            <li>Q3: {answerText.a3[answers.a3]}</li>
-            <li>Q4: {answerText.a4[answers.a4]}</li>
+            <li>Q1: {questions.a1.options[answers.a1]}</li>
+            <li>Q2: {questions.a2.options[answers.a2]}</li>
+            <li>Q3: {questions.a3.options[answers.a3]}</li>
+            <li>Q4: {questions.a4.options[answers.a4]}</li>
           </ul>
         </ResultCard>
       )}

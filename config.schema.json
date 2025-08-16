@@ -1,13 +1,24 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["meta", "thresholds", "contacts", "disclaimer", "logicPaths", "medicareNote", "faq"],
+  "required": ["meta", "questions", "thresholds", "contacts", "disclaimer", "logicPaths", "medicareNote", "faq"],
   "properties": {
     "meta": {
       "type": "object",
       "required": ["appTitle"],
       "properties": {
         "appTitle": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "questions": {
+      "type": "object",
+      "required": ["a1", "a2", "a3", "a4"],
+      "properties": {
+        "a1": { "$ref": "#/definitions/question" },
+        "a2": { "$ref": "#/definitions/question" },
+        "a3": { "$ref": "#/definitions/question" },
+        "a4": { "$ref": "#/definitions/question" }
       },
       "additionalProperties": false
     },
@@ -72,6 +83,20 @@
       "properties": {
         "monthlyIncome": { "type": "number" },
         "assets": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "question": {
+      "type": "object",
+      "required": ["legend", "errorLabel", "options"],
+      "properties": {
+        "legend": { "type": "string" },
+        "errorLabel": { "type": "string" },
+        "options": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": { "type": "string" }
+        }
       },
       "additionalProperties": false
     },

@@ -2,7 +2,46 @@
   "meta": {
     "appTitle": "Maryland LTSS Options Screening Tool"
   },
-  
+
+  "questions": {
+    "a1": {
+      "legend": "1) What best describes your current situation?",
+      "errorLabel": "Question 1: Your current situation",
+      "options": {
+        "A": "I’m living at home or with family, but daily tasks are becoming difficult.",
+        "B": "I am in a hospital or rehab and planning to return home.",
+        "C": "I am in a hospital or rehab and may need to move to a nursing home.",
+        "D": "I am currently living in a nursing home for long-term care."
+      }
+    },
+    "a2": {
+      "legend": "2) Do you have either of the following to help pay for care?",
+      "errorLabel": "Question 2: Insurance or VA benefits",
+      "options": {
+        "A": "Long-Term Care Insurance",
+        "B": "Access to VA (Veterans) benefits",
+        "C": "None of the above"
+      }
+    },
+    "a3": {
+      "legend": "3) Which of these best describes your financial picture?",
+      "errorLabel": "Question 3: Financial picture",
+      "options": {
+        "A": "Monthly income < ~$1,250 AND savings/assets < $2,000",
+        "B": "Monthly income ~$1,250–$2,900 AND savings/assets < $2,000",
+        "C": "Monthly income > ~$2,900 OR savings/assets > $2,000"
+      }
+    },
+    "a4": {
+      "legend": "4) Are you enrolled in Medicare?",
+      "errorLabel": "Question 4: Medicare enrollment",
+      "options": {
+        "A": "Yes",
+        "B": "No"
+      }
+    }
+  },
+
   "thresholds": {
     "lowIncome": { "monthlyIncome": 1250, "assets": 2000 },
     "gapIncome": { "monthlyIncome": 2900, "assets": 2000 }
