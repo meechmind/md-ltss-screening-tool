@@ -61,11 +61,11 @@ export default function FAQ() {
         })}
       </div>
 
-      <div className="margin-top-3">
-        <Link className="usa-button usa-button--unstyled" to="/">
-          Back to screening
-        </Link>
+        <div className="margin-top-3">
+          <Link className="usa-button usa-button--unstyled" to="/questions">
+            Back to screening
+          </Link>
+        </div>
       </div>
-    </div>
-  );
-}
+    );
+  }

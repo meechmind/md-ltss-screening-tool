@@ -3,7 +3,7 @@
 
 import Container from "./Container.jsx";
 import { getMeta } from "../utils/logic.js";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
   const { appTitle } = getMeta();
@@ -19,7 +19,12 @@ export default function Header() {
             </em>
           </div>
           <nav className="margin-left-2">
-            <Link className="usa-link" to="/faq">FAQ</Link>
+            <Link className="usa-link margin-right-2" to="/">
+              Start over
+            </Link>
+            <NavLink className="usa-link" to="/faq">
+              FAQ
+            </NavLink>
           </nav>
         </Container>
       </div>

@@ -3,6 +3,12 @@
     "appTitle": "Maryland LTSS Options Screening Tool"
   },
 
+  "intro": {
+    "headline": "Welcome to the Maryland LTSS Options Screening Tool",
+    "description": "Answer four quick questions to see programs that may help you or a loved one.",
+    "startLabel": "Start screening"
+  },
+
   "questions": {
     "a1": {
       "legend": "1) What best describes your current situation?",

@@ -1,13 +1,23 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
-  "required": ["meta", "questions", "thresholds", "contacts", "disclaimer", "logicPaths", "medicareNote", "faq"],
+  "required": ["meta", "intro", "questions", "thresholds", "contacts", "disclaimer", "logicPaths", "medicareNote", "faq"],
   "properties": {
     "meta": {
       "type": "object",
       "required": ["appTitle"],
       "properties": {
         "appTitle": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "intro": {
+      "type": "object",
+      "required": ["headline", "description", "startLabel"],
+      "properties": {
+        "headline": { "type": "string" },
+        "description": { "type": "string" },
+        "startLabel": { "type": "string" }
       },
       "additionalProperties": false
     },

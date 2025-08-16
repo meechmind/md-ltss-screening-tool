@@ -2,6 +2,7 @@
 // src/components/Footer.jsx
 
 import Container from "./Container.jsx";
+import { Link, NavLink } from "react-router-dom";
 import { getDisclaimer, getContacts } from "../utils/logic.js";
 
 export default function Footer() {
@@ -21,6 +22,14 @@ export default function Footer() {
                 Social Security Administration: <strong>{contacts.ssa}</strong>{" "}
                 &nbsp;|&nbsp; VA Maryland HCS: <strong>{contacts.va}</strong>
               </p>
+              <nav className="margin-top-2">
+                <Link className="usa-link margin-right-2" to="/">
+                  Start over
+                </Link>
+                <NavLink className="usa-link" to="/faq">
+                  FAQ
+                </NavLink>
+              </nav>
             </div>
           </div>
         </Container>

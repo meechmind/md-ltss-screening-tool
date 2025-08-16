@@ -9,6 +9,7 @@ import Container from "./components/Container.jsx";
 import "./styles/global.css";
 
 /* Pages */
+import Intro from "./pages/Intro.jsx";
 import Questions from "./pages/Questions.jsx";
 import Results from "./pages/Results.jsx";
 import FAQ from "./pages/FAQ.jsx";
@@ -20,10 +21,8 @@ export default function App() {
       <main id="main" role="main" className="main-container">
         <Container>
           <Routes>
-            <Route
-              path="/"
-              element={<Questions />}
-            />
+            <Route path="/" element={<Intro />} />
+            <Route path="/questions" element={<Questions />} />
             <Route
               path="/results"
               element={<Results />}

@@ -1,6 +1,10 @@
-import { afterEach, expect } from 'vitest'
-import matchers from '@testing-library/jest-dom/matchers'
-import { cleanup } from '@testing-library/react'
+import { afterEach, expect } from "vitest";
 
-expect.extend(matchers)
-afterEach(cleanup)
+try {
+  const matchers = await import("@testing-library/jest-dom/matchers");
+  expect.extend(matchers.default);
+  const { cleanup } = await import("@testing-library/react");
+  afterEach(cleanup);
+} catch {
+  // testing-library not installed; skip additional setup
+}
