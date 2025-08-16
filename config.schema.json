@@ -1,0 +1,93 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["meta", "thresholds", "contacts", "disclaimer", "logicPaths", "medicareNote", "faq"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["appTitle"],
+      "properties": {
+        "appTitle": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "thresholds": {
+      "type": "object",
+      "required": ["lowIncome", "gapIncome"],
+      "properties": {
+        "lowIncome": { "$ref": "#/definitions/threshold" },
+        "gapIncome": { "$ref": "#/definitions/threshold" }
+      },
+      "additionalProperties": false
+    },
+    "contacts": {
+      "type": "object",
+      "required": ["map", "ssa", "va"],
+      "properties": {
+        "map": { "type": "string" },
+        "ssa": { "type": "string" },
+        "va": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "disclaimer": { "type": "string" },
+    "logicPaths": {
+      "type": "object",
+      "required": ["ltci", "va", "low-income", "gap", "nursing-home", "higher-income", "general"],
+      "properties": {
+        "ltci": { "$ref": "#/definitions/logicPath" },
+        "va": { "$ref": "#/definitions/logicPath" },
+        "low-income": { "$ref": "#/definitions/logicPath" },
+        "gap": { "$ref": "#/definitions/logicPath" },
+        "nursing-home": { "$ref": "#/definitions/logicPath" },
+        "higher-income": { "$ref": "#/definitions/logicPath" },
+        "general": { "$ref": "#/definitions/logicPath" }
+      },
+      "additionalProperties": false
+    },
+    "medicareNote": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["q", "a"],
+        "properties": {
+          "q": { "type": "string" },
+          "a": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "definitions": {
+    "threshold": {
+      "type": "object",
+      "required": ["monthlyIncome", "assets"],
+      "properties": {
+        "monthlyIncome": { "type": "number" },
+        "assets": { "type": "number" }
+      },
+      "additionalProperties": false
+    },
+    "logicPath": {
+      "type": "object",
+      "required": ["title", "summary", "showMedicareNote"],
+      "properties": {
+        "title": { "type": "string" },
+        "summary": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "showMedicareNote": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
