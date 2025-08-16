@@ -15,7 +15,7 @@ export default function Header() {
         <Container className="usa-navbar" as="div">
           <div className="usa-logo" id="logo">
             <em className="usa-logo__text">
-              <a href="/" title="{appTitle}">{appTitle}</a>
+              <Link to="/" title={appTitle}>{appTitle}</Link>
             </em>
           </div>
           <nav className="margin-left-2">
