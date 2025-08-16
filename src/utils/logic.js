@@ -1,5 +1,6 @@
 // results logic
-import config from "../config.json"
+import "../config.validate.js";
+import config from "../config.json";
 
 /**
  * Determine result key from answers.
