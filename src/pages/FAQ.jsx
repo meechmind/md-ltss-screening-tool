@@ -62,7 +62,7 @@ export default function FAQ() {
       </div>
 
       <div className="margin-top-3">
-        <Link className="usa-button usa-button--unstyled" to="/">
+        <Link className="usa-button usa-button--unstyled" to="/questions">
           Back to screening
         </Link>
       </div>

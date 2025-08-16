@@ -2,9 +2,11 @@
    Global app styles — MD Digital Service + USWDS friendly
    ================================ */
 
+/* Base typography and design tokens */
 :root {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: var(--usa-line-height-body, 1.5);
+  --mda-accent-color: var(--usa-color-accent-cool);
 }
 
 html, body, #root {
@@ -12,10 +14,14 @@ html, body, #root {
 }
 
 body {
-  font-family: "Source Sans Pro", "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  color: #1b1b1b; /* USWDS ink */
-  background: #ffffff;
+  font-family: var(--usa-font-sans), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color: var(--usa-color-ink);
+  background: var(--usa-color-base-lightest);
   margin: 0;
+}
+
+h1, h2, h3 {
+  color: var(--mda-accent-color);
 }
 
 .app-container {
@@ -29,25 +35,11 @@ body {
 .mda-container {
   max-width: 72rem; /* ~1152px */
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: var(--usa-spacing-3);
 }
 
 a { text-underline-offset: 0.15em; }
 
-/* Minimal fallback button (prefer USWDS .usa-button) */
-.button {
-  display: inline-block;
-  border: 0;
-  padding: .625rem 1rem;
-  border-radius: .25rem;
-  background: #005ea2; /* USWDS primary-700 */
-  color: #fff;
-  cursor: pointer;
-}
-.button:focus {
-  outline: 3px solid #2491ff;
-  outline-offset: 2px;
-}
 
 /* Keep "(Required)" inline when used inside legends */
 .usa-legend .hint-inline {
@@ -55,12 +47,12 @@ a { text-underline-offset: 0.15em; }
   margin-left: 0.25rem;
   font-weight: normal;
   font-size: 0.95em;
-  color: #565c65; /* USWDS gray-60 */
+  color: var(--usa-color-gray-60);
 }
 
 /* Fallback focus ring for interactive controls (USWDS already handles most) */
 :where(a, button, input, select, textarea, [role="button"]):focus-visible {
-  outline: 3px solid #2491ff;
+  outline: 3px solid var(--usa-color-focus);
   outline-offset: 2px;
 }
 
@@ -70,24 +62,24 @@ a { text-underline-offset: 0.15em; }
 .measure-6 a,
 .usa-card__body a,
 .usa-footer__secondary-section a {
-  color: #205493;           /* blue-70v — AAA */
+  color: var(--usa-color-blue-70v);           /* AAA */
 }
 .measure-6 a:visited,
 .usa-card__body a:visited,
 .usa-footer__secondary-section a:visited {
-  color: #1a4480;           /* blue-80v — AAA */
+  color: var(--usa-color-blue-80v);           /* AAA */
 }
 .measure-6 a:hover,
 .usa-card__body a:hover { text-decoration: underline; }
 
 /* Hint/help text a bit darker for AA/AAA */
-.usa-hint { color: #4d4d4d; }
+.usa-hint { color: var(--usa-color-gray-50); }
 
 /* Step indicator labels: ensure strong contrast */
-.usa-step-indicator__segment-label { color: #1b1b1b; }
+.usa-step-indicator__segment-label { color: var(--usa-color-ink); }
 
 /* Footer small text: ensure strong contrast */
-.font-sans-2xs { color: #1b1b1b; }
+.font-sans-2xs { color: var(--usa-color-ink); }
 
 /* ================================
    Print utilities
@@ -106,9 +98,9 @@ a { text-underline-offset: 0.15em; }
   /* Page + base typography */
   @page { margin: 0.75in; }                  /* comfortable margins */
   html, body {
-    font-family: "Source Sans Pro", "Source Sans 3", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif !important;
+    font-family: var(--usa-font-sans), system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif !important;
     font-size: 16px !important;              /* keep on-screen size */
-    color: #1b1b1b !important;
+    color: var(--usa-color-ink) !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -122,8 +114,8 @@ a { text-underline-offset: 0.15em; }
   /* “Printed on …” and other print-only hints */
   .only-print {
     display: block !important;
-    margin-top: 0.5rem;
-    color: #565c65;
+    margin-top: var(--usa-spacing-2);
+    color: var(--usa-color-gray-60);
     font-size: 0.95rem;
   }
 
@@ -134,11 +126,11 @@ a { text-underline-offset: 0.15em; }
 
   /* Cards: consistent look & spacing */
   .usa-card {
-    border: 1px solid #ddd !important;
+    border: 1px solid var(--usa-color-gray-20) !important;
     border-radius: .5rem !important;         /* match the rounded look */
     box-shadow: none !important;
     page-break-inside: avoid; break-inside: avoid;
-    margin: 1.25rem 0 !important;            /* space between cards */
+    margin: var(--usa-spacing-4) 0 !important;            /* space between cards */
   }
   .usa-card__container { border: 0 !important; }
   .usa-card__header { display: none !important; } /* hide native header in print */
@@ -147,17 +139,17 @@ a { text-underline-offset: 0.15em; }
   .usa-card .usa-card__body::before {
     content: attr(data-title);
     display: block !important;
-    color: #1b1b1b !important;
+    color: var(--usa-color-ink) !important;
     font-weight: 800 !important;
     font-size: 1.375rem !important;          /* larger, like on-screen */
     line-height: 1.25 !important;
     margin: 0 0 .4rem 0 !important;
-    border-bottom: 1px solid #eee !important;
+    border-bottom: 1px solid var(--usa-color-gray-10) !important;
     padding-bottom: .25rem !important;
   }
 
   /* Comfortable body padding inside cards */
-  .usa-card__body { padding: 1rem 1.25rem !important; }
+  .usa-card__body { padding: var(--usa-spacing-3) var(--usa-spacing-4) !important; }
 
   /* Lists & paragraphs spacing (closer to screen) */
   .usa-card__body p { margin: 0.5rem 0 0 0 !important; }
@@ -183,7 +175,7 @@ a { text-underline-offset: 0.15em; }
     content: "•";
     font-weight: 700;                   /* bold bullet, like screen */
     font-size: 1.05rem;                 /* tweak to taste */
-    margin-right: .35rem;
+    margin-right: var(--usa-spacing-1);
   }
   
   /* FAQ prints expanded and tidy */
@@ -195,7 +187,7 @@ a { text-underline-offset: 0.15em; }
     box-shadow: none !important;
     padding: 0 !important;
     text-align: left !important;
-    color: #1b1b1b !important;
+    color: var(--usa-color-ink) !important;
     font-weight: 800 !important;
     font-size: 1.375rem !important;
     line-height: 1.25 !important;

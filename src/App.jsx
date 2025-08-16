@@ -9,6 +9,7 @@ import Container from "./components/Container.jsx";
 import "./styles/global.css";
 
 /* Pages */
+import Intro from "./pages/Intro.jsx";
 import Questions from "./pages/Questions.jsx";
 import Results from "./pages/Results.jsx";
 import FAQ from "./pages/FAQ.jsx";
@@ -20,10 +21,8 @@ export default function App() {
       <main id="main" role="main" className="main-container">
         <Container>
           <Routes>
-            <Route
-              path="/"
-              element={<Questions />}
-            />
+            <Route path="/" element={<Intro />} />
+            <Route path="/questions" element={<Questions />} />
             <Route
               path="/results"
               element={<Results />}
@@ -38,7 +37,7 @@ export default function App() {
                 <div className="measure-6">
                   <h1 className="margin-top-2">Page not found</h1>
                   <p>Try going back to the screening questions.</p>
-                  <Link className="usa-button" to="/">Start Over</Link>
+                  <Link className="usa-button usa-button--accent-cool" to="/">Start Over</Link>
                 </div>
               }
             />

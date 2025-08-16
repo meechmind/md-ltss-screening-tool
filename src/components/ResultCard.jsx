@@ -3,7 +3,7 @@
 export default function ResultCard({ title, children, className = "" }) {
   return (
     <section className={`usa-card margin-top-2 ${className}`}>
-      <div className="usa-card__container">
+      <div className="usa-card__container radius-md shadow-md">
         <header className="usa-card__header">
           <h3 className="usa-card__heading">{title}</h3>
         </header>

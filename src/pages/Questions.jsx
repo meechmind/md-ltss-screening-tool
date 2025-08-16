@@ -220,7 +220,7 @@ export default function Questions() {
       </fieldset>
 
       <div className="margin-top-4">
-        <button className="usa-button" type="submit">See my results</button>
+        <button className="usa-button usa-button--accent-cool" type="submit">See my results</button>
       </div>
     </form>
   );

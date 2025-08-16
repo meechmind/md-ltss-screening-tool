@@ -133,7 +133,7 @@ export default function Results() {
 
       {/* Results action buttons */}
       <div className="margin-top-3 no-print results-actions">
-        <button className="usa-button" onClick={() => window.print()} aria-label="Print your results">
+        <button className="usa-button usa-button--accent-cool" onClick={() => window.print()} aria-label="Print your results">
           Print results
         </button>
 
