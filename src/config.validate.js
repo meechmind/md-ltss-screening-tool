@@ -1,5 +1,5 @@
 import Ajv from "ajv";
-import schema from "./config.schema.json";
+import schema from "../config.schema.json";
 import cfg from "./config.json";
 const ajv = new Ajv({ allErrors: true });
 const validate = ajv.compile(schema);
